@@ -56,11 +56,6 @@ Problemi:
       <!-- ----------------------------------------------------------------- -->
       <div class="col-3 bg-blue-1 rounded-borders q-pa-md">
         <div class="row q-col-gutter-sm">
-          <div>
-            <span class="text-bold">Current frame:</span>
-            {{ currentImage && currentImage.sequence }}
-          </div>
-
           <q-toggle
             v-model="isAutoRotateEnabled"
             label="Autoplay"

@@ -5,10 +5,12 @@
       <!-- ----------------------------------------------------------------- -->
       <div class="col">
         <vue-three-sixty
-          :amount="36"
-          image-path="https://cdn1.360-javascriptviewer.com/images/blue-shoe-small/"
-          file-name="20180906-{index}-blauw.jpg"
+          ref="viewer"
+          :amount="98"
+          image-path="https://cdn1.360-javascriptviewer.com/images/blue-shoe-small"
+          file-name="20180906-0{index}-blauw.jpg"
           padding-index
+          :spin-reverse="isReverseEnabled"
         >
         </vue-three-sixty>
       </div>
@@ -25,41 +27,10 @@
             v-model="isAutoplayEnabled"
             label="Autoplay"
             class="col-12"
-          />
-
-          <q-toggle
-            v-model="isFullScreenEnabled"
-            label="Full screen"
-            class="col-12"
+            @input="onAutoplayChange"
           />
 
           <q-toggle v-model="isReverseEnabled" label="Reverse" class="col-12" />
-
-          <q-input
-            v-model.number="magnifierZoom"
-            label="Magnifier zoom"
-            type="number"
-            min="1"
-            max="4"
-            step="0.5"
-            outlined
-            dense
-            hint="Disabled when <= 1"
-            class="col-12"
-          />
-
-          <q-input
-            v-model.number="pointerZoom"
-            label="Pointer zoom"
-            type="number"
-            min="1"
-            max="4"
-            step="0.5"
-            outlined
-            dense
-            hint="Disabled when <= 1"
-            class="col-12"
-          />
         </div>
       </div>
     </div>
@@ -74,10 +45,7 @@ export default {
   components: {},
   data: () => ({
     isAutoplayEnabled: false,
-    isFullScreenEnabled: false,
     isReverseEnabled: false,
-    magnifierZoom: 1,
-    pointerZoom: 1,
     imageUrlList: [],
     currentXIndex: null,
     currentZoomX: 0,
@@ -102,6 +70,9 @@ export default {
       this.currentZoomX = x;
       this.currentZoomY = y;
     },
+    onAutoplayChange(value){
+      this.$refs.viewer.togglePlay();
+    }
   },
 };
 </script>
