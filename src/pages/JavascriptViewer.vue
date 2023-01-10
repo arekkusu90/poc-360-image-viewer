@@ -26,6 +26,7 @@ Problemi:
           :auto-rotate-reverse="isReverseEnabled"
           zoom
           enable-change-image-event
+          default-progress-bar
           @load-image="(...args) => logViewerEvent('load-image', ...args)"
           @started="(...args) => logViewerEvent('started', ...args)"
           @change-image="onChangeImage"
@@ -42,14 +43,14 @@ Problemi:
           @zoom-out="(...args) => logViewerEvent('zoom-out', ...args)"
         />
 
-        <template v-if="currentImage">
-          <image-zoom-map
-            :image-url="currentImage.src"
-            :x="currentX"
-            :y="currentY"
-            :scale="zoomScale"
-          />
-        </template>
+<!--        <template v-if="currentImage">-->
+<!--          <image-zoom-map-->
+<!--            :image-url="currentImage.src"-->
+<!--            :x="currentX"-->
+<!--            :y="currentY"-->
+<!--            :scale="zoomScale"-->
+<!--          />-->
+<!--        </template>-->
       </div>
 
       <!-- ACTIONS -->
@@ -102,11 +103,10 @@ Problemi:
 <script>
 import { getImageUrlList } from "src/services/utils";
 import JavascriptViewerViewer from "components/JavascriptViewerViewer.vue";
-import ImageZoomMap from "components/ImageZoomMap.vue";
 
 export default {
   name: "JavascriptViewer",
-  components: { ImageZoomMap, JavascriptViewerViewer },
+  components: { JavascriptViewerViewer },
   data: () => ({
     isReverseEnabled: false,
     isAutoRotateEnabled: false,

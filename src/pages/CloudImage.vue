@@ -30,12 +30,12 @@ Problemi:
           @zoom-position-change="onZoomPositionChange"
         />
 
-        <image-zoom-map
-          :image-url="currentImageUrl"
-          :scale="pointerScale"
-          :x="currentZoomX"
-          :y="currentZoomY"
-        />
+<!--        <image-zoom-map-->
+<!--          :image-url="currentImageUrl"-->
+<!--          :scale="pointerScale"-->
+<!--          :x="currentZoomX"-->
+<!--          :y="currentZoomY"-->
+<!--        />-->
       </div>
 
       <!-- ACTIONS -->
@@ -94,11 +94,10 @@ Problemi:
 <script>
 import { getImageUrlList } from "src/services/utils";
 import CloudImageViewer from "components/CloudImageViewer.vue";
-import ImageZoomMap from "components/ImageZoomMap.vue";
 
 export default {
   name: "CloudImage",
-  components: { ImageZoomMap, CloudImageViewer },
+  components: { CloudImageViewer },
   data: () => ({
     isAutoplayEnabled: false,
     isFullScreenEnabled: false,
@@ -120,6 +119,10 @@ export default {
   },
   created() {
     this.imageUrlList = getImageUrlList();
+    this.imageUrlList.push('https://pixlr.com/images/index/remove-bg.webp');
+    this.imageUrlList.push('https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg');
+    this.imageUrlList.push('https://assets2.razerzone.com/images/pnx.assets/618c0b65424070a1017a7168ea1b6337/razer-wallpapers-page-hero-mobile.jpg');
+    this.imageUrlList.push('https://images.unsplash.com/photo-1559583985-c80d8ad9b29f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXwxMDY1OTc2fHxlbnwwfHx8fA%3D%3D&w=1000&q=80');
   },
   methods: {
     onImageXChange(newIndex) {

@@ -48,7 +48,7 @@
 import { uid } from "quasar";
 import {
   CLOUD_IMAGE,
-  CUSTOM,
+  // CUSTOM,
   JAVASCRIPT_VIEWER,
   VUE_360,
 } from "src/router/routes";
@@ -57,7 +57,7 @@ const MENU_LIST = [
   { id: uid(), label: "Javascript viewer", route: JAVASCRIPT_VIEWER },
   { id: uid(), label: "Cloud image", route: CLOUD_IMAGE },
   { id: uid(), label: "Vue 360", route: VUE_360 },
-  { id: uid(), label: "Custom", route: CUSTOM },
+  // { id: uid(), label: "Custom", route: CUSTOM },
 ];
 
 export default {

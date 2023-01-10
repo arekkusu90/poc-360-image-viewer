@@ -1,6 +1,5 @@
 <template>
   <div class="cloud-image-viewer">
-    {{ pointerCurrentPosition }}
     <div class="cloudimage-360" :id="id"></div>
   </div>
 </template>
